@@ -1,10 +1,26 @@
 import React from "react";
 import {connect} from "react-redux";
 import { getAdvice } from "../store/actions/index";
+import styled from "styled-components";
+
+
+const Button = styled.button`
+  color: palevioletred;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`;
+
+const H2Font = styled.h2`
+    color: palevioletred;
+`
+
 
 const Advice = ({ getAdvice, advice, isFetching, error}) => {
     if(isFetching) {
-        return <h2>Fetching advice</h2>;
+        return <H2Font>Fetching advice</H2Font>;
     }
 
     if (error) {
@@ -13,8 +29,8 @@ const Advice = ({ getAdvice, advice, isFetching, error}) => {
 
     return (
         <div>
-            <h2>advice: {advice} </h2>
-            <button onClick={getAdvice}>Get new advice</button>
+            <H2Font>advice: {advice}</H2Font>
+            <Button onClick={getAdvice}>Get new advice</Button>
         </div>
     );
 
